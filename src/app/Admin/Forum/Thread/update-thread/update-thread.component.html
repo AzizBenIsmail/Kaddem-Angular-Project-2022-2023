@@ -1,0 +1,21 @@
+<p>update-thread works!</p>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+
+<form #f="ngForm" (ngSubmit)="f.form.valid && submit()">
+<div class="form-group">
+    <label for="reply">Reply</label>
+    <input type="text" id="reply" name="reply" [(ngModel)]="reponse.reply" #reply="ngModel" class="form-control" required>
+    <div class="alert-danger" *ngIf="!reply.valid && f.submitted"> required</div>
+</div>
+<button type="submit" class="btn btn-success w-100 mt-3"> send </button>
+</form>

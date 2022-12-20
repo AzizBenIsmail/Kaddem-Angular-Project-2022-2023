@@ -1,0 +1,71 @@
+<div class="main-content">
+    <div class="container-fluid">
+  <div class="row">
+      <div class="col-md-12">
+          <button data-inline="true" (click)="refresh()"
+                  type="button">
+              <i class="material-icons">refresh</i>
+          </button>
+          <div class="card">
+              <div class="card-header card-header-danger">
+                  <button mat-raised-button [routerLink]="['add']" type="button">
+                      <i class="material-icons">add</i>
+                  </button>
+                  <h4 class="card-title ">departement</h4>
+                  <p class="card-category"> Tout les departement</p>
+              </div>
+              <div class="card-body">
+                  <div class="table-responsive">
+                      <table class="table">
+                          
+                          <thead class=" text-primary">
+                              <th>
+                                  ID
+                              </th>
+                              <th>
+                                  Nom
+                              </th>
+                              <th>
+                                  Nombre d'etage
+                              </th>
+                              <th>
+                                  Nombre de classe
+                              </th>
+
+                          </thead>
+                          
+                          <tbody>
+                             
+                              <tr *ngFor="let dep of departements" >
+                                  <td>
+                                      {{ dep.idDepartement }} 
+                                  </td>
+                                  <td>
+                                      {{ dep.nomDepartement }}
+                                  </td>
+                                  <td>
+                                      {{ dep.nombre_detage }}
+                                  </td>
+                                  <td>
+                                      {{ dep.nombre_classes }}
+                                  </td>
+                                  <td>
+
+                                      <button [routerLink]="['update/'+dep.idDepartement]" type="button"
+                                              class="btn btn-info"
+                                      >Modifier
+                                      </button>
+                                      <button (click)="confirmBox(dep.idDepartement,dep.nomDepartement)"
+                                              class="btn btn-danger"
+                                      >Supprimer
+                                      </button>
+                                  </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>

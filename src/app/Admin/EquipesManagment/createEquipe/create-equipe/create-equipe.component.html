@@ -1,0 +1,129 @@
+<div>
+
+    <mat-card
+            style="max-width: 500px;margin:auto"
+            [class.mat-elevation-z8]="true"
+    >
+        <form
+                style="display: flex;flex-direction: column;"
+                [formGroup]="createEquipeForm"
+                (ngSubmit)="onSubmit()"
+        >
+            <mat-form-field>
+                <input matInput placeholder="nomEquipe" name="nomEquipe" formControlName="nomEquipe" />
+                <mat-error
+                        *ngIf="createEquipeForm.get('nomEquipe').hasError('EquipeAlreadyExists')"
+                >
+                    Equipe deja <strong>existe</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="salle" name="salle" formControlName="salle" />
+                <mat-error
+                        *ngIf="createEquipeForm.get('salle').hasError"
+                >
+                    la salle doit avoir au moins  <strong>3 caractere </strong><small style="color: #0a6ebd">exemple : G011</small>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="thematique" name="thematique" formControlName="thematique" />
+                <mat-error
+                        *ngIf="createEquipeForm.get('thematique').hasError"
+                >
+                    le thematique  doit avoir au moins  <strong>3 caractere </strong><small style="color: #0a6ebd">exemple:Francais </small>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="nombreMaxParticipants" name="nombreMaxParticipants" formControlName="nombreMaxParticipants" />
+            </mat-form-field>
+            <mat-form-field *ngIf = "listeEtudiants">
+
+                <mat-select formControlName="idEtudiant"  placeholder="Choisir un responsable d'equipe" >
+                    <mat-option *ngFor="let lC of listeEtudiants"
+                                [value]="lC.idE">
+                        {{lC.nom}}
+                    </mat-option>
+                </mat-select>
+                <mat-error
+                        *ngIf="createEquipeForm.get('idEtudiant').hasError"
+                >
+                    <small>il faut choisir un responsable de chaque equipe</small>
+                </mat-error>
+            </mat-form-field>
+
+
+
+
+
+
+
+<!--            <mat-form-field>-->
+<!--                <option *ngFor="let item of listeEtudiants.nom" [value]="item">-->
+<!--                    {{item.nom}}-->
+<!--                </option>-->
+<!--            </mat-form-field>-->
+
+
+
+
+
+
+
+
+
+            <mat-error
+                    *ngIf="createEquipeForm.get('image').hasError"
+            >
+                <small> il faut choisir une image d'equipe</small>
+            </mat-error>
+
+            <div style="display:flex" class="spacing-bottom">
+                <button
+                        mat-mini-fab
+                        type="button"
+                        color="primary"
+                        (click)="onUploadImageButtonClick()"
+                >
+                    <mat-icon>attach_file</mat-icon>
+                </button>
+                <span style="display: flex;align-items: center;margin-left: 15px;">
+          {{
+                    (createEquipeForm.value.image &&
+                        createEquipeForm.value.image.name) ||
+                    "upload an image"
+                    }}
+        </span>
+                <input
+                        name="image"
+                        type="file"
+                        (change)="onFileChange()"
+                        hidden
+                        #inputImage
+                />
+            </div>
+
+            <div *ngIf="imageDataUrl">
+
+                <img style="display: block;max-width: 100%;" [src]="imageDataUrl" />
+            </div>
+            <button
+                    class="spacing-top"
+                    mat-raised-button
+                    color="primary"
+                    type="submit"
+                    [disabled]="isLoading"
+            >
+            Ajouter une equipe
+            </button>
+            <p *ngIf="failed" class="warn-color mat-small spacing-top">failed!</p>
+            <div
+                    *ngIf="isLoading"
+                    class="spacing-top spacing-left"
+                    style="display: flex;justify-content: center;"
+            >
+                <mat-spinner diameter="25"></mat-spinner>
+            </div>
+        </form>
+    </mat-card>
+</div>

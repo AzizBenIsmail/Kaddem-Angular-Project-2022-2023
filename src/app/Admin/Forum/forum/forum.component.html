@@ -1,0 +1,63 @@
+
+<div class="main-content threadSection">
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-md-12">
+          
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-center btn btn-danger   "> Forum</div>
+            </div>
+          </div>
+  
+          
+        <div class="col-md-12">
+          
+  
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-center   btn btn-secondary  " routerLink="../all/thread" routerLinkActive="active"> THREADS</div>
+              <div class="col-sm text-center  btn btn-secondary  " routerLink="../all/reponse" routerLinkActive="active">REPONSES</div>
+            </div>
+          </div>
+  
+          <div class="card">
+            <br />
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              {{ errorMessage }}
+            </div>
+            <br />
+  
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Table des threads</h4>
+              <p class="card-category">Liste des threads</p>
+            </div>
+
+<app-create-thread></app-create-thread>
+
+
+            <div class="">
+
+              <button class="btn btn-primary" (click)="createThreadRequest()" > add thread</button>
+            </div>
+
+
+            <div class="card" style="width: 50rem;" *ngFor="let thread of threads; index as ind">
+              <div class="card-body">
+                <h5 class="card-title">{{thread.object}}</h5>
+                <p class="card-text">{{thread.question}}</p>
+                <label class="card-text"> Likes:   {{thread.nb_likes}}  </label>
+                <br>
+                <a  class="btn btn-primary" (click)="addreply(thread)">Go somewhere</a>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

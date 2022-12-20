@@ -1,0 +1,53 @@
+<ng-container
+        *ngIf="isLoading; then showLoading; else doneLoading"
+></ng-container>
+
+<ng-template #doneLoading>
+    <ng-container
+            *ngIf="failed; then failedProduct; else successProduct"
+    ></ng-container>
+</ng-template>
+
+<ng-template #failedProduct>
+    <div>
+        <mat-card
+                style="max-width: 780px;margin:auto"
+                [class.mat-elevation-z4]="true"
+        >
+            <h1 class="mat-display-1 warn-color" style="text-align: center;">
+                Failed
+            </h1>
+        </mat-card>
+    </div>
+</ng-template>
+<ng-template #showLoading>
+    <div>
+        <mat-card
+                style="max-width: 780px;margin:auto;display: flex;justify-content: center;"
+                [class.mat-elevation-z4]="true"
+        >
+            <mat-spinner></mat-spinner>
+        </mat-card>
+    </div>
+</ng-template>
+
+<ng-template #successProduct>
+    <mat-card
+            style="max-width: 500px;margin:auto"
+            [class.mat-elevation-z5]="true"
+    >
+        <img
+                style="height:150px;"
+                mat-card-image
+                [src]="equipe.image"
+                alt="Photo of Equipe"
+                (error)="onError()"
+        />
+
+        <mat-card-content>
+            <div>name : {{ equipe.nomEquipe }}</div>
+
+        </mat-card-content>
+
+    </mat-card>
+</ng-template>

@@ -1,0 +1,115 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <button data-inline="true" matTooltip="Edit Task"
+                        [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus" (click)="refresh()"
+                        type="button">
+                    <i class="material-icons">refresh</i>
+                </button>
+<!--                <button mat-raised-button (click)="Show()" type="button" matTooltip="Edit Task"-->
+<!--                        [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">-->
+<!--                    <i class="material-icons">add</i>-->
+<!--                </button>-->
+                <div *ngIf="display"> <app-add-universite></app-add-universite>  </div>
+                <div class="card">
+
+                    <div class="card-header card-header-danger">
+
+                        <h4 class="card-title ">Universite
+
+                          <button mat-raised-button [routerLink]="['add']" type="button" matTooltip="Edit Task"
+                                    [matTooltipPosition]="'above'" class="glyphicon glyphicon-plus">
+                                <i class="material-icons">add</i>
+                            </button>
+                        </h4>
+                        <p class="card-category"> Tout les universites</p>
+                    </div>
+                    <div class="card-body" id="sectionToPrint">
+                        <div class="table-responsive">
+                            <table class="table">
+
+                                <thead class=" text-primary">
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Etat</th>
+                                <th>Reputation</th>
+                                <th>Surface</th>
+                                <th>date_creation</th>
+                                <th>date_update</th>
+                                <th>
+                                    Action
+                                </th>
+                                </thead>
+
+                                <tbody>
+
+                                <tr *ngFor="let uni of universites"
+                                    [ngStyle]="{'background-color':uni.etatUniversite === 'Fible' ? '#ffcccb' : '#90EE90' }">
+                                    <td class="font-weight-bold">
+                                        {{ uni.idUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.nomUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.etatUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.reputationUniversite }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.surfaceUniversite }}
+
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.date_creation }}
+                                    </td>
+                                    <td class="font-weight-bold">
+                                        {{ uni.date_update }}
+                                    </td>
+
+                                    <td>
+
+<!--                                        <button mat-icon-button><mat-icon [routerLink]="['/tasks/edit',task._id]" color="primary">edit</mat-icon></button>-->
+
+
+
+                                        <button [routerLink]="['/Universite/update/'+uni.idUniversite]" type="button"
+                                                matTooltip="Edit Task"
+                                                [matTooltipPosition]="'above'"
+                                                class="btn btn-info"
+                                        >Modifier
+                                        </button>
+                                        <button (click)="confirmBox(uni.idUniversite,uni.nomUniversite)"
+                                                class="btn btn-danger"
+                                        >Supprimer
+                                        </button>
+                                    </td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" class="js-programmatic-set-val btn btn-outline-primary mr-1 mb-1s"
+                               (click)="onPrint('sectionToPrint')" value="print a div!"/>
+                    </form>
+                </div>
+                <!--Start of Tawk.to Script-->
+
+                <!--End of Tawk.to Script-->
+            </div>
+        </div>
+    </div>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    //use this to initialize the plugin
+    <script src="sweetalert2.min.js"></script>
+</div>

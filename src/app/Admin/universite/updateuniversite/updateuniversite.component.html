@@ -1,0 +1,87 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card-body">
+                <form #f="ngForm">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <mat-form-field class="example-full-width">
+                                <input type="text" matInput placeholder="Nom de universite" name="nomuniversite"   required minlength="4" #idN="ngModel" [(ngModel)]="universite.nomUniversite" >
+                                <div *ngIf="idN.invalid && idN.touched">
+                                    <div *ngIf="idN.errors?.['minlength']">
+                                        <div class="alert alert-info">
+                                            Le nom de universite doit avoir au moins 3 caractères    </div>
+                                    </div>
+                                    <div *ngIf="idN.errors?.['required']">
+                                        <div class="alert alert-primary">
+                                            Le nom de universite est obligatoire  </div>
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="col-md-12">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Type de universite</mat-label>
+                                <select matNativeControl  name="etauniversite"  required #idE="ngModel" [(ngModel)]="universite.etatUniversite" >
+                                    <option value="Bonne">Bonne</option>
+                                    <option value="Moyenne">Moyenne</option>
+                                    <option value="Fible">Fible</option>
+                                </select>
+                            </mat-form-field>
+                        </div>
+
+
+                        <div class="col-md-5">
+                            <mat-form-field class="example-full-width">
+                                <input type="text" matInput placeholder="reputation de universite" name="reputationUniversite"   required minlength="5" maxlength="20" #idR="ngModel" [(ngModel)]="universite.reputationUniversite" >
+                                <div *ngIf="idR.invalid && idR.touched">
+                                    <div *ngIf="idR.errors?.['minlength']">
+                                        <div class="alert alert-info">
+                                            Le nom de universite doit avoir au moins 5 caractères    </div>
+                                    </div>
+                                    <div *ngIf="idR.errors?.['maxlength']">
+                                        <div class="alert alert-info">
+                                            Le nom de universite doit avoir au moins 20 caractères    </div>
+                                    </div>
+                                    <div *ngIf="idR.errors?.['required']">
+                                        <div class="alert alert-primary">
+                                            La reputation de universite est obligatoire  </div>
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-5">
+                            <mat-form-field class="example-full-width">
+                                <input type="number" matInput placeholder="surface de universite" name="surfaceUniversite"   required min=5000 max=5000000 #idS="ngModel" [(ngModel)]="universite.surfaceUniversite" >
+                                <div *ngIf="idS.invalid && idS.touched ">
+                                    <div *ngIf="idS.errors?.['min']">
+                                        <div class="alert alert-info">
+                                            Le surface de universite doit etre superieur a 500    </div>
+                                    </div>
+                                    <div *ngIf="idS.errors?.['max']">
+                                        <div class="alert alert-info">
+                                            Le surface de universite doit etre inferieur a 5000000    </div>
+                                    </div>
+                                    <div *ngIf="idS.errors?.['required']">
+                                        <div class="alert alert-primary">
+                                            La surface de universite est obligatoire  </div>
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                        </div>
+
+                    </div>
+
+                    <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerUniversite(f)"  [disabled]="f.invalid">Envoyer</button>
+
+                    <button mat-raised-button  class="btn btn-danger pull-right"    [routerLink]="['/Universite']">Annuler</button>
+
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

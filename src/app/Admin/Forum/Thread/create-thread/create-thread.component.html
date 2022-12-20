@@ -1,0 +1,133 @@
+<div class="modal fade" id="threadModal" tabIndex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form #f="ngForm" (ngSubmit)="f.form.valid && saveThread(f)">
+        <div class="modal-header">
+          <h2 class="modal-title">détails du thread</h2>
+          <button
+            class="btn-close"
+            data-dismiss="modal"
+            (click)="resetThread(f)"
+          >X</button>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" *ngIf="errorMessage">
+            <strong> Erreur ! </strong> {{ errorMessage }}
+          </div>
+          <div class="form-group">
+            <label for="object"> Objet</label>
+            <input
+              type="text"
+              id="object"
+              class="form-control"
+              name="object"
+              [(ngModel)]="thread.object"
+              #object="ngModel"
+              required
+            />
+            <div
+              class="alert-danger text-danger"
+              *ngIf="f.submitted && !object.valid"
+            >
+              L'objet de thread est obligatoire !
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="question"> question</label>
+            <input
+              type="text"
+              id="question"
+              class="form-control"
+              name="question"
+              [(ngModel)]="thread.question"
+              #question="ngModel"
+              required
+            />
+            <div
+              class="alert-danger text-danger"
+              *ngIf="f.submitted && !question.valid"
+            >
+              Question est obligatoire !
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="display">Display</label>
+            <div class="form-control">
+              <label class="label">On </label>
+              <input
+                type="radio"
+                id="display"
+                [value]="true"
+                name="display"
+                [(ngModel)]="thread.display"
+                #display="ngModel"
+                required
+              />
+              <label class="label">OFF </label>
+              <input
+                type="radio"
+                id="display"
+                [value]="false"
+                name="display"
+                [(ngModel)]="thread.display"
+                #display="ngModel"
+              />
+            </div>
+
+            <div
+              class="alert-danger text-danger"
+              *ngIf="f.submitted && !display.valid"
+            >
+              Display doit être réglé !
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="verified">verified</label>
+            <div class="form-control">
+              <label class="label">On </label>
+              <input
+                type="radio"
+                id="verified"
+                [value]="true"
+                name="verified"
+                [(ngModel)]="thread.verified"
+                #verified="ngModel"
+                required
+              />
+              <label class="label">OFF </label>
+              <input
+                type="radio"
+                id="verified"
+                [value]="false"
+                name="verified"
+                [(ngModel)]="thread.verified"
+                #verified="ngModel"
+              />
+            </div>
+
+            <div
+              class="alert-danger text-danger"
+              *ngIf="f.submitted && !verified.valid"
+            >
+              verified fault etre valider !
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            data-dismiss="modal"
+            (click)="resetThread(f)"
+          >
+            Close
+          </button>
+
+          <button class="btn btn-danger" type="submit">Save change</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

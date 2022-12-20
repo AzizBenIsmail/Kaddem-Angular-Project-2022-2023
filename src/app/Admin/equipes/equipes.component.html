@@ -1,0 +1,95 @@
+<!--<div class="main-content">-->
+<!--    <div class="container-fluid">-->
+<!--      <div class="border">-->
+<!--        <button class="btn btn-md btn-outline-primary">-->
+<!--          <i class="fa fa-users"></i>Ajouter une equipe</button>-->
+<!--      </div>-->
+<!--        <div class="card my-5">-->
+<!--            <div class="card-body">-->
+<!--              <table class="table table-bordered table-striped">-->
+<!--                <thead class="thead-dark">-->
+<!--                  <tr>-->
+<!--                    <th scope="col">#</th>-->
+<!--                    <th scope="col">Nom Equipe</th>-->
+<!--                      <th scope="col">Valide?</th>-->
+<!--                      <th scope="col">Actions</th>-->
+<!--                 -->
+<!--                  </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                  <tr *ngFor="let equipe of equipes">-->
+<!--                    <td>{{ equipe.idEquipe }}</td>-->
+<!--                    <td>{{ equipe.nomEquipe }}</td>-->
+<!--                    <td>-->
+<!--                      <div *ngIf=equipe.image>-->
+<!--                        &lt;!&ndash;img [src]="http://localhost:8083/kaddem/images/2.jpg"&ndash;&gt;-->
+<!--                      </div></td>-->
+
+<!--                      <td *ngIf="equipe.isValid== true" ><a routerLink="/equipe.idEquipe" ><i style="color: green" class="fa fa-check fa-1x" aria-hidden="true"> </i></a></td>-->
+<!--                      <td *ngIf="equipe.isValid== false" ><a routerLink="/hi" ><i style="color: red" class="fa fa-circle-thin fa-1x" aria-hidden="true"> </i></a> </td>-->
+<!--                      <td  ><button (click)="updateEquipe(equipe.idEquipe)" class='btn btn-info'-->
+<!--                                                                  data-toggle="modal" data-target="#myModal">Update</button>  </td>-->
+
+<!--                  </tr>-->
+<!--                </tbody>-->
+<!--              </table>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--<div class="modal" id="myModal">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <form [formGroup]="equipeUpdateForm" #up (ngSubmit)="updateEq(up)">-->
+<!--        &lt;!&ndash; Modal Header &ndash;&gt;-->
+<!--        <div class="modal-header">-->
+<!--          <h4 class="modal-title" style="text-align: center">Update Equipe</h4>-->
+
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Modal body &ndash;&gt;-->
+<!--        <div class="modal-body" *ngFor="let equipe of equipes " >-->
+<!--          <div [hidden]="isupdated">-->
+
+<!--            <input type="hidden" class="form-control"  formControlName="idEquipe" [(ngModel)]="equipe.idEquipe">-->
+<!--            <div class="form-group">-->
+<!--              <label for="nomEquipe">Nom Equipe</label>-->
+<!--              <input type="text"  id="nomEquipe" class="form-control"  formControlName="nomEquipe" [(ngModel)]="equipe.nomEquipe"  >-->
+<!--            </div>-->
+
+
+
+
+<!--          </div>-->
+<!--          <div [hidden]="!isupdated">-->
+<!--            <h4>Equipe  Updated!</h4>-->
+<!--          </div>-->
+
+<!--        </div>-->
+
+<!--        &lt;!&ndash; Modal footer &ndash;&gt;-->
+<!--        <div class="modal-footer" >-->
+<!--          <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>-->
+<!--          <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>-->
+<!--        </div>-->
+
+<!--      </form>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<div class="main-content">
+    <div class="container-fluid">
+
+<div *ngFor="let e of equipes"  >
+
+  <h1>{{e.nomEquipe}}</h1>
+    <img
+            style="height:150px;"
+            mat-card-image
+            [src]="e.image"
+            alt="Photo of a Shiba Inu"
+            (error)="onError()"
+    />
+</div>
+    </div></div>

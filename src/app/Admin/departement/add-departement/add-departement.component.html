@@ -1,0 +1,29 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card-body">
+                <form [formGroup]="DepartementForm" (ngSubmit)="onSubmit()">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <label for="nomDepartement">Nom Departement: </label>
+                            <input id="nomDepartement" type="text" formControlName="nomDepartement">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="nombre_classes">Nombre Classes: </label>
+                            <input id="nombre_classes" type="number" formControlName="nombre_classes">
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="nombre_detage">Nombre D'etage: </label>
+                            <input id="nombre_detage" type="number" formControlName="nombre_detage">
+                        </div>
+                    </div>
+                    <p>Complete the form to enable button.</p>
+                    <button type="submit" [disabled]="!DepartementForm.valid" >Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

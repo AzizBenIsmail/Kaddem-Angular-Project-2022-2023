@@ -1,0 +1,21 @@
+
+<div *ngIf="err.invalid">
+<div *ngIf="err.errors?.['required']">
+    
+
+
+    <div class="alert alert-danger">
+        Le champs   est obligatoire  </div>
+      
+
+</div>
+<div *ngIf="err.errors?.['minlength']">
+
+
+    <div  class="alert alert-white">
+        Le champs doit avoir au moins 3 caractères</div>
+
+
+</div>
+
+</div>

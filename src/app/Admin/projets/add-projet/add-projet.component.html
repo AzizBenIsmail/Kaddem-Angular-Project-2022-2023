@@ -1,0 +1,140 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">     
+                      <div class="card-body">
+                      
+                          <form [formGroup]="myForm" >
+                              <div class="row">
+                                  <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                        <input type="text" matInput placeholder="Nom de projet" formControlName="nomProjet"  name="nomProjet"     >
+                                      
+
+                                        <app-errors [err]="nomProjet"></app-errors>
+
+
+
+                                      </mat-form-field>
+                                  </div>
+
+                                  
+                                  <div class="col-md-12">
+                                     
+                                     
+                                   
+                                    <mat-form-field class="example-full-width" appearance="fill">
+                                      <mat-label>Type de projet </mat-label>
+                                      <input type="text" 
+                                             placeholder="PFE"
+                                             aria-label="Type"
+                                             matInput
+                                             [formControl]="myControl" 
+                                             [matAutocomplete]="auto"  formControlName="typeProjet"  >
+                                      <mat-autocomplete   autoActiveFirstOption #auto="matAutocomplete"  >
+                                        <mat-option  *ngFor="let option of filteredOptions | async" [value]="option"  > 
+                                          {{option}}
+                                        </mat-option>
+                                      </mat-autocomplete>
+                                    </mat-form-field>
+  
+                                      
+                                    
+                                  </div>
+  
+                                  <div class="col-md-5">
+                                      <mat-form-field class="example-full-width">
+                                        <input  matInput placeholder="Durée de projet " name="dureeProjet"  formControlName="dureeProjet" >
+                                     
+                                        
+                                        <app-errors [err]="dureeProjet"></app-errors>
+
+
+
+
+
+                                      </mat-form-field>
+                                  </div>
+                                  
+                              </div>
+                              <div class="row">
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input  type="date" matInput placeholder="Date début" name="dateDebutP" min={{date}} (change)="onDateChange()"  formControlName="dateDebutP"  >
+                                  
+                                   
+                                      <app-errors [err]="dateDebutP"></app-errors>
+                                  
+                                  
+                                  
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                      <input  type="date" matInput placeholder="Date fin"  name="dateFinP"  min={{startDate}} formControlName="dateFinP"  >
+                                  
+                                  
+                                      <app-errors [err]="dateFinP"></app-errors>
+                                  
+                                     
+                                  
+                                  
+                                  
+                                  
+                                    </mat-form-field>
+
+
+
+
+
+                                   
+                                 
+                            
+
+
+
+
+
+                                  </div>
+                              </div>
+                             
+
+                            
+
+                       
+                           
+                         
+                     
+
+                             
+                          <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerProjet()"  [disabled]="myForm.invalid">Envoyer</button>
+                            
+                          <button mat-raised-button  class="btn btn-danger  pull-right"    (click)="reloadComponent()">Annuler</button>
+                          
+                          <div class="clearfix"></div>
+                          </form>
+                      </div>
+                 
+  
+  
+                      <div *ngIf="clicked">
+                    
+                       <app-add-tache></app-add-tache>
+                       
+                    </div>
+  
+                   
+                  
+                  
+
+
+
+        <!-- Modal footer -->  
+        
+          
+    
+      </div>  
+    </div>  
+  </div>  
+
+  
+   

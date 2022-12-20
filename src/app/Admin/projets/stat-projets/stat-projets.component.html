@@ -1,0 +1,21 @@
+<i class="fa fa-times" aria-hidden="true" (click)="reloadComponent()" ></i>
+<app-sizer-component [(size)]="fontSizePx"></app-sizer-component>
+<div class="card card-chart">
+  
+    <div [style.font-size.px]="fontSizePx">
+    <div class="card-header card-header-danger">
+        <div class="ct-chart" id="websiteViewsChart"></div>
+    </div>
+
+    <div class="card-body">
+       
+        <p class="card-category">Nombre de projets par type</p>
+    </div>
+    <div class="card-footer">
+        <div class="stats">
+            <i class="material-icons">access_time</i> updated 2 seconde ago
+        </div>
+    </div>
+</div>
+ 
+</div>

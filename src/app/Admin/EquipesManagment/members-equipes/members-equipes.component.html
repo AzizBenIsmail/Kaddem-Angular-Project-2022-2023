@@ -1,0 +1,180 @@
+
+
+<div class="main-content">
+
+
+
+    <div  class="container-fluid">
+
+
+
+
+
+
+
+        <div>
+
+            <mat-card
+                    style="max-width: 500px;margin:auto"
+                    [class.mat-elevation-z8]="true"
+            >
+                <form
+                        style="display: flex;flex-direction: column;"
+                        [formGroup]="addMembreEquipeForm"
+                        (ngSubmit)="onSubmit2()"
+                >
+
+
+
+
+                    <mat-form-field *ngIf = "allEtudiants">
+
+                        <mat-select formControlName="idEtudiant"  placeholder="Choisir un membre d'equipe" >
+                            <mat-option *ngFor="let lC of allEtudiants"
+                                        [value]="lC.idE">
+                                {{lC.nom}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error
+                                *ngIf="addMembreEquipeForm.get('idEtudiant').hasError"
+                        >
+                            <small>merci de choisir un membre pour cette equipe</small>
+                        </mat-error>
+                    </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <button
+                            class="spacing-top"
+                            mat-raised-button
+                            color="primary"
+                            type="submit"
+
+                    >
+                     Ajouter
+                    </button>
+
+                </form>
+            </mat-card>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <a [routerLink]="[ '/Equipes' ]" ><small>retourner a la liste des equipes</small></a>
+
+
+
+
+        <div class="container">
+
+            <div class="card m-5 p-3">
+                <div class="card-body">
+                    <h1>Liste des Membres </h1>
+
+                    <table id="ExcelTable" class="table table-bordered table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>nom</th>
+                            <th>prenom</th>
+                            <th>date entrée</th>
+                            <th>date sortie</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let m of membres">
+                            <td
+                             [ngStyle]="{'color':(m.isDeletedFromEquipe== true ) ? 'orange' : 'green' }">
+                           {{ m.nom }}</td>
+                            <td>{{ m.prenom }}</td>
+
+                            <td>{{ m.dateEntreeEquipe |date:'dd-MM-yyyy HH:mm:ss'  }}</td>
+                            <td *ngIf="m.isDeletedFromEquipe
+ == false">encore membre</td>
+                            <td *ngIf="m.isDeletedFromEquipe">{{m.dateSortieEquipe |date:'dd-MM-yyyy HH:mm:ss'}}</td>
+                            <td>
+                                <button style="margin: 2px" class="btn-danger" (mouseenter)="isHidden = !isHidden" (mouseleave)="isHidden = !isHidden" (click)="deleteEtudiantFromEquipe(m.idE)" >
+                                    <mat-icon  >delete_forever</mat-icon></button>
+
+                                <button style="margin: 2px" class="btn-primary" (mouseenter)="isHidden2 = !isHidden2" (mouseleave)="isHidden2 = !isHidden2"  (click)="deleteEtudiantPartielleFromEquipe(m.idE)" ><mat-icon>delete</mat-icon></button>
+                                <button style="margin: 2px" class="btn-success" (mouseenter)="isHidden3 = !isHidden3" (mouseleave)="isHidden3 = !isHidden3"  (click)="rajouterEtudiantPartielleFromEquipe(m.idE)" ><mat-icon>check</mat-icon></button>
+
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button (click)="exportexcel()" >Exporter en Excel</button>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div *ngIf="isHidden" class="alert alert-primary" role="alert">
+           <small> ce bouton pour supprimer definitivement l'etudiant de l'equipe</small>
+        </div>
+
+        <div *ngIf="isHidden2" class="alert alert-primary" role="alert">
+            <small> ce bouton pour supprimer  l'etudiant de l'equipe temporairement</small>
+        </div>
+
+        <div *ngIf="isHidden3" class="alert alert-primary" role="alert">
+            <small> ce bouton pour rajouter  l'etudiant </small>
+
+
+
+        </div>
+        </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+

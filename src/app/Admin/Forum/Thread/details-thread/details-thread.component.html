@@ -1,0 +1,143 @@
+
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+<form [formGroup]="reponseForm" novalidate>
+
+  <div class="form-group" *ngIf="updateR">
+    <label for="">object</label>
+    <h1>{{object2}}</h1>
+
+  </div>
+
+  <div class="form-group" >
+    <label for="">likes</label>
+  <h1>{{reponse.thread.nb_likes}}</h1>
+    <div class="" *ngIf="!canLike">
+      <button class="btn btn-danger" type="submit" (click)="like()" disabled>
+        like
+      </button>
+    </div>
+    <div class="" *ngIf="canLike">
+    <button class="btn btn-danger" type="submit" (click)="like()">
+      like
+    </button>
+  </div>
+  </div>
+
+  <div class="form-group" >
+    <div class="form-group" *ngIf="!updateR">
+    <label for="">object</label>
+    <input
+    type="text"
+    class="form-control"
+    name="object"
+    formControlName="object"
+    required
+  />
+
+</div>
+      <label for="">by</label>
+      <h1>{{by}}</h1>
+
+
+      <label for="">thread date</label>
+<h1>
+    
+        {{threadDate | date : "short" }}  
+      
+    </h1>
+  </div>
+
+
+
+
+  <div class="form-group" *ngIf="updateR">
+    <label for="">question</label>
+    <h1>{{question2}}</h1>
+
+  </div>
+
+  <div class="form-group" *ngIf="!updateR">
+    <label for="">question</label>
+    <input
+    type="text"
+    class="form-control"
+    name="question"
+    formControlName="question"
+    required
+  />
+  <button class="btn btn-danger" type="submit" (click)="questionf()"> update </button>
+  </div>
+  <div class="form-group" *ngIf="!add">
+    <div class="p-3 mb-2 bg-success text-white">Reply added successfully</div>
+  </div>
+  <div class="form-group" *ngIf="add">
+<div class="form-group" *ngIf="!updateR">
+  <label for=""> add new reply</label>
+  <textarea class="form-control"     
+  name="newreply"
+  formControlName="newreply"
+  required>{{up}}</textarea>
+  <button class="btn btn-danger" type="submit" (click)="addReply()">
+    Add
+  </button>
+</div>
+</div>
+  <div class="form-group" *ngIf="updateR">
+    <label for="">reply</label>
+    <input
+      type="text"
+      class="form-control"
+      name="reply"
+      formControlName="reply"
+      required
+    />
+  </div>
+  <div class="form-group" *ngIf="!updateR">
+    <label for=""> other replies </label><br>
+
+<div class="" *ngFor="let reponse of reponses; index as ind">
+
+
+   
+    <label for=""> ___by: {{reponse.thread.etudiant.idE}}</label> <br>
+    <label for=""> likes: {{reponse.nb_likes}}</label> 
+    <button class="btn btn-danger" type="submit" (click)="likeR(reponse)">
+Like
+    </button>
+    <br>
+
+
+    <label>{{reponse.reply}}</label>
+    <label>{{reponse.replydate | date : "short"}}
+              
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="deleteReponses(reponse, ind)"
+                      >
+                        Supprimer
+                      </button>
+
+
+
+
+    </label>
+    
+
+
+  </div>
+
+
+  </div>
+<div class="" *ngIf="updateR">
+  <button class="btn btn-danger" type="submit" (click)="update()">
+    Save change
+  </button>
+</div>
+</form>
+</div>
+</div>
+

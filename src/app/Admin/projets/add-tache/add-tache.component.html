@@ -1,0 +1,97 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row"> 
+         
+                      <div class="card-body">
+                        <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()">
+                          <div class="card m-3">
+                              
+                              <div class="card-body border-bottom">
+                                  <div class="form-row">
+                                      <div class="form-group">
+                                          <label>Numéro de taches</label>
+                                          <select formControlName="numberOfTaches" class="form-control" (change)="onChangeTaches($event)" [ngClass]="{ 'is-invalid': submitted && f.numberOfTaches.errors }">
+                                              <option value=""></option>
+                                              <option *ngFor="let i of [1,2,3,4,5,6,7,8,9,10]">{{i}}</option>
+                                          </select>
+                                          <div *ngIf="submitted && f.numberOfTaches.errors" class="invalid-feedback">
+                                              <div *ngIf="f.numberOfTaches.errors.required">Nombre de taches obligatoire</div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div *ngFor="let tache of tacheFormGroups; let i = index" class="list-group list-group-flush">
+                                  <div class="list-group-item">
+                                      <h5 class="card-title">Tache {{i + 1}}</h5>
+                                      <div [formGroup]="tache" class="form-row">
+                                      
+                                        <div class="col-md-5"> 
+                                        
+                                        <mat-form-field class="example-full-width">
+                                          <input type="text" matInput placeholder="Description"  formControlName="descriptionTache" name="Description"     >
+                                         
+
+                                        
+                                         
+
+                                        </mat-form-field>       
+                                        
+                                      </div> 
+                                  
+                                      <div class="col-md-5">
+                                   
+                                   
+                                 
+                                    
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>TODO</mat-label>
+                                            <select matNativeControl  name="etattache"   formControlName="etatTache" >
+                                              <option value="TODO" >TODO</option>
+                                              <option value="DOING">DOING</option>
+                                              <option value="DONE">DONE</option>
+                                            
+                                            </select>
+                                          </mat-form-field>
+
+
+                                        
+                                          
+                                  
+                                </div>
+
+
+                              
+
+
+
+                                        
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="card-footer text-center border-top-0">
+                                <button mat-raised-button type="submit" class="btn btn-danger pull-right"   (click)="enregistrerTache()"    >Envoyer</button>
+                                  <button mat-raised-button  class="btn btn-danger pull-right" (click)="onReset()">Reset</button>
+                                  <button mat-raised-button  class="btn btn-danger pull-right"    (click)="reloadComponent()">Annuler</button>
+                          
+                              </div>
+                          </div>
+                      </form>
+                
+                
+                      <!-- Modal footer -->  
+                      
+                
+                
+               
+
+
+                    </div>  </div>
+            </div>
+        </div>
+    
+
+
+
+
+
+      

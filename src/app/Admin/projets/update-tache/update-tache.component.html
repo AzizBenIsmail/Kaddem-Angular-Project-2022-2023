@@ -1,0 +1,62 @@
+<div class="main-content">
+    <div class="container-fluid">
+    
+        <div class="row"> 
+                      <div class="card-body">
+                        <form #f="ngForm">
+                            <div class="row">
+                                <div class="col-md-5">
+                                  <mat-form-field class="example-full-width">
+                                      <input type="text" matInput placeholder="Description" name="Description"   required minlength="3" #id="ngModel" [(ngModel)]="tache.descriptionTache" >
+                                      <app-errors [err]="id"></app-errors>
+                                    </mat-form-field>
+                                </div>
+
+                                
+                                <div class="col-md-5">
+                                   
+                                   
+                                 
+                                    
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>Etat de tache</mat-label>
+                                            <select matNativeControl  name="etattache"  required  [(ngModel)]="tache.etatTache" >
+                                              <option value="TODO">TODO</option>
+                                              <option value="DOING">DOING</option>
+                                              <option value="DONE">DONE</option>
+                                            
+                                            </select>
+                                          </mat-form-field>
+
+
+                                    
+                                  
+                                </div>
+                              </div>
+
+                                
+                           
+                           
+                              <button mat-raised-button type="submit" class="btn btn-danger pull-right"  (click)="enregistrerTache(f)"    [disabled]="f.invalid">Envoyer</button>
+                            
+                              <button mat-raised-button  class="btn btn-danger pull-right"    (click)="reloadComponent()">Annuler</button>
+                          
+                              <div class="clearfix"></div>
+                        </form>
+                    </div>
+               
+
+
+                </div>
+            </div>
+        </div>
+    
+
+
+
+
+
+
+
+
+      <!-- Modal footer --> 

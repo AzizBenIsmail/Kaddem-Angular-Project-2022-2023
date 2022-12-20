@@ -1,0 +1,115 @@
+
+
+
+
+
+<div class="bg">
+  <label class="rechLabel" for="site-search">Chercher les taches du  projet:</label>
+<input  class="rech" type="search"(keyup)="applyFilter($event.target.value)" >
+<div cdkDropListGroup >
+  
+  <div class="example-container">
+    <h2>To do</h2>
+
+    <div 
+      cdkDropList
+      [cdkDropListData]="todo"
+      class="example-list"
+     
+  (cdkDropListDropped)="drop($event,'todo')">
+      <div class="example-box"   *ngFor="let item of todo" cdkDrag  >{{item}}</div>
+    </div>
+  
+  </div>
+
+
+  <div class="example-container">
+    <h2>Doing</h2>
+
+    <div 
+      cdkDropList
+      [cdkDropListData]="doing"
+      class="example-list" 
+      (cdkDropListDropped)="drop($event,'doing')">
+      <div class="example-box"  *ngFor="let item of doing"   cdkDrag>{{item}}</div>
+    </div>
+  </div>
+
+
+
+  <div class="example-container">
+    <h2>Done</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="done"
+      class="example-list"
+       
+     
+      (cdkDropListDropped)="drop($event,'done')">
+      <div class="example-box"   *ngFor="let item of done"  cdkDrag>{{item}}</div>
+
+    </div>
+   
+  </div>
+
+
+  
+
+  
+    
+
+</div>
+
+
+
+
+
+
+
+
+<div class="blog-card alt">
+  <div class="meta">
+    <div class="photo" style="background-image: url(https://storage.googleapis.com/chydlx/codepen/blog-cards/image-2.jpg)"></div>
+    <ul class="details">
+     
+      <li class="date">{{projet.dateDebutP}}</li>
+      &nbsp;  
+      &nbsp;  
+      &nbsp;  
+      <li class="date">{{projet.dateFinP}}</li>
+    </ul>
+  </div>
+  <div class="description">
+    <h1>{{projet.nomProjet}}</h1>
+   
+
+    <h2 class="read-more"> 
+      Type de projet : {{projet.typeProjet}}
+    </h2>
+    <h2 class="read-more"> 
+      Durée : {{projet.dureeProjet}}
+    </h2>
+    <p>Toucher pour voir la date de début et la date de fin du projet </p>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+

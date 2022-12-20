@@ -1,0 +1,70 @@
+
+<div class="container-fluid" id="updateComp">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card-warning w-50 p-3 ">
+                <div class="card-header card-header">
+    <h3 class="title" >Mettre à jour votre Contrat !</h3><br>
+    <div class="form-container">
+        <form name="contractForm"  [formGroup]="contractForm" novalidate >
+
+            <!--Date du contrat-->
+            <mat-form-field color="accent" class="form-field" appearance="outline">
+                <mat-label>Date Debut De Contrat</mat-label>
+                <input matInput  [matDatepicker]="picker1" formControlName="dateDebutC" [(ngModel)]="ctrct.dateDebutC" required>
+                <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+                <mat-error *ngIf="contractForm.controls.dateDebutC.touched && contractForm.controls.dateDebutC.invalid">
+                    <span *ngIf="contractForm.controls.dateDebutC.errors.required">Veuillez choisir une date.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field color="accent" class="form-field" appearance="outline">
+                <mat-label>Date Fin De Contrat</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="dateFinC" required [(ngModel)]="ctrct.dateFinC">
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                <mat-error *ngIf="contractForm.controls.dateFinC.touched && contractForm.controls.dateFinC.invalid">
+                    <span *ngIf="contractForm.controls.dateFinC.errors.required">Veuillez choisir une date.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <!--Specialite du Contrat-->
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Specialite</mat-label>
+                <mat-select formControlName="specailite" required [(ngModel)]="ctrct.specailite">
+                    <mat-option *ngFor="let spec of specialites" [value]="spec.value">
+                        {{spec.viewValue}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="contractForm.controls.specailite.touched && contractForm.controls.specailite.invalid">
+                    <span *ngIf="contractForm.controls.specailite.errors.required">Veuillez choisir une option.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <!--Prix du Contrat-->
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label>Prix</mat-label>
+                <mat-select formControlName="montantC"   required  [(ngModel)]="ctrct.montantC">
+                    <mat-optgroup *ngFor="let group of prixGroups" [label]="group.name"
+                                  [disabled]="group.disabled">
+                        <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+                            {{pokemon.viewValue}}
+                        </mat-option>
+                    </mat-optgroup>
+                </mat-select>
+                <mat-error *ngIf="contractForm.controls.montantC.touched && contractForm.controls.montantC.invalid">
+                    <span *ngIf="contractForm.controls.montantC.errors.required">Veuillez choisir une option.</span>
+                </mat-error>
+            </mat-form-field>
+            <!-- <button (click)="onError()"></button> -->
+            <button mat-raised-button color="accent"  [disabled]="contractForm.invalid" (click)="updateContract(contractForm.value)">Valider</button>
+            <button mat-raised-button  [mat-dialog-close]  class="log">Close</button>
+        </form><br><br><br>
+    </div>
+</div>
+
+            </div></div></div></div>
+
+
+

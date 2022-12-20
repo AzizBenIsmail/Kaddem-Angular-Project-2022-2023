@@ -1,0 +1,115 @@
+<p *ngIf="!taches">
+    Loading...
+  </p>
+
+<div class="main-content">
+    <div class="container-fluid">
+        <i class="fa fa-times" aria-hidden="true" (click)="reloadComponent()" ></i>
+        <div class="row">
+
+
+
+         
+          
+        
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="card-title ">Table des taches
+                    &nbsp;  
+                    <i class="fa fa-line-chart" aria-hidden="true"  (click)="stats()" ></i>   
+                 
+            </h4>
+                <p class="card-category"></p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+                            <th>
+                                Description 
+                            </th>
+                            <th>
+                                Avancement
+                            </th>
+                           
+                        </thead>
+                        <tbody>
+                            <tr  *ngFor="let tache  of taches">
+                               
+                                                
+                                <td [appHighlight]="color" >{{ tache.descriptionTache }}</td>
+                             
+                               
+                          
+                            <div  [ngStyle]="{'background-color':tache.etatTache=='DONE'?' white':'white',
+                            'border':tache.etatTache=='DONE'?' 4px dashed red':'0px'}">
+<td>{{ tache.etatTache }}</td>
+                            </div>
+                              
+                          
+                               <td>
+                             <!-- <a (click)="updateTache(projet,tache)"   class="fa fa-pencil" ></a>
+                                &nbsp; 
+                                -->  
+                                <!-- <a (click)="deleteTache(tache.idTache)"   class="fa fa-trash" ></a> --> 
+  
+                               <!--  &nbsp; --> 
+                                   <!--<a  (click)="getEtudiant(tache.idTache)" class="fa fa-search" ></a> --> 
+
+                                   
+                          
+                               </td>
+                               
+                         
+
+
+
+
+
+
+                            
+                            </tr>     
+                        </tbody>
+                    </table>
+
+
+
+                  
+
+
+
+
+
+
+                </div>
+
+               
+
+                
+                <div *ngIf="clicked">
+ 
+                    <app-stat-taches  [taches]="taches" ></app-stat-taches>
+                     </div>       
+                     <div *ngIf="clickedUpdateTache">
+                        <app-update-tache [projet]="projetBinding" [tache]="tacheBinding" ></app-update-tache>
+                      
+                        </div>
+                      
+                            <app-loader  ></app-loader>
+                         
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    
+
+</div>
+</div>
+</div>
+

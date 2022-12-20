@@ -1,0 +1,23 @@
+.threadSection {
+  background: white;
+  height: 10px;
+  padding: 10px 0;
+ // border: 3px solid #eb4a46;
+  text-align: center;
+}
+.reponseSection {
+  //   background: blue;
+  color: black !important;
+  height: 30px;
+  padding: 10px 0;
+ // border: 3px solid #eb4a46;
+  text-align: center;
+}
+.reponseSection:hover {
+  color: white;
+}
+.forum{
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 1px -1px gray !important;
+}

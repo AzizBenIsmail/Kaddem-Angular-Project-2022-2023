@@ -1,0 +1,148 @@
+
+
+<div class="main-content">
+
+
+
+
+
+
+
+    <div  class="container-fluid">
+
+
+
+        <br/>
+        <br/>
+        <br/>
+
+
+
+        <div >
+            <p>
+                <button data-inline="true" class="btn btn-success " (click)="openPDF2()">Download PDF</button>
+
+                <button data-inline="true" class="btn btn-primary" (click)="exportexcel()" >Exporter en Excel</button>
+            </p>
+        </div>
+
+        <a [routerLink]="[ '/Equipes' ]" ><small>retourner a la liste des equipes</small></a>
+
+
+        <article class="table-header">
+
+            <div>
+
+                <!--                <button class="button-add-row" mat-button (click)="addRow()">-->
+                <!--                    Add Row-->
+                <!--                </button>-->
+            </div>
+        </article>
+
+
+        <table id="htmlData" #htmlData  width="100%" mat-table [dataSource]="dataSource">
+            <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+                <th   mat-header-cell *matHeaderCellDef>
+
+                    {{ col.label }}
+
+
+                </th>
+
+                <td    mat-cell *matCellDef="let element">
+                    <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
+
+
+
+                        <div *ngIf="col.key=='nombreParticipants'">
+
+                            <span style="font-size: 15px" class="badge rounded-pill bg-info text-dark">{{element.detailEquipe.nombreParticipants}}</span>
+
+                        </div>
+
+
+                        <div *ngIf="col.key=='dateCreation'">
+
+                            <small>{{element.detailEquipe.dateCreation | date:'dd-MM-yyyy HH:mm:ss' }}</small>
+                        </div>
+
+                        <div *ngIf="col.key=='NomResponsable'">
+
+                            <small>{{element.etudiant.nom}}</small>
+                        </div>
+
+                        <div *ngIf="col.key=='members'">
+
+                            <!--                            <a [routerLink]="['/getMembers/',element.idEquipe] ">voir membres</a>-->
+                        </div>
+
+
+                        <span *ngSwitchDefault>
+
+
+                        {{ element[col.key] }}
+
+                         </span>
+
+
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                </td>
+
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            <th>
+                sss
+            </th>
+        </table>
+
+
+
+<!--        <mat-paginator [pageSizeOptions]="[1, 2, 15, 20]" [pageSize]="1" [length]="totalElements" (page)="nextPage($event)"> </mat-paginator>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+

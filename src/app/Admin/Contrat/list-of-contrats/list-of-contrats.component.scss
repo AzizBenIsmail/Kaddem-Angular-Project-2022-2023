@@ -1,0 +1,29 @@
+.ngx-pagination .pagination-previous a::before,
+.ngx-pagination .pagination-previous.disabled::before,
+.ngx-pagination .pagination-next a::after,
+.ngx-pagination .pagination-next.disabled::after{
+  content:'' !important;
+}
+
+.ngx-pagination .current,
+.ngx-pagination a:hover,
+.ngx-pagination button:hover {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  -khtml-border-radius: 50%;
+}
+.ngx-pagination .current {
+  background: #56118B !important;
+}
+.ngx-pagination .pagination-next a,
+.ngx-pagination .pagination-previous a{
+  border-radius: 0px !important;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  -ms-border-radius: 0px !important;
+  -o-border-radius: 0px !important;
+  -khtml-border-radius: 0px !important;
+}

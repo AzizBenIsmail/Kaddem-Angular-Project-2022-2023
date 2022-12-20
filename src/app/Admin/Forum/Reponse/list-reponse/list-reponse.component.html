@@ -1,0 +1,81 @@
+<div class="main-content threadSection">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-sm text-center forum  btn threadSection  "routerLink="../" routerLinkActive="active"> Forum</div>
+            </div>
+          </div>
+
+            
+        <div class="container">
+            <div class="row">
+              <div class="col-sm text-center   btn btn-secondary  "  routerLink="../thread" routerLinkActive="active"> THREADS</div>
+              <div class="col-sm text-center  btn btn-danger"> REPONSES</div>
+            </div>
+          </div>
+
+
+    
+          <div class="card">
+            <br />
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              {{errorMessage}}
+            </div>
+            <br>
+  
+            <div class="card-header card-header-danger">
+              <h4 class="card-title">Table des reponses</h4>
+              <p class="card-category">Liste des reponses</p>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="text-primary">
+                    <tr>
+                      <th>#</th>
+                      <th>thread question</th>
+                      <th>reply</th>
+                      <th>etudiant</th>
+                      <th>nb_likes</th>
+                      <th>display</th>
+                      <th>replyDate</th>
+                      <th>updatedAt</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+  
+                  <tbody>
+                    <tr *ngFor="let reponse of Reponses; index as ind">
+                      <td>{{ reponse.id }}</td>
+                      <td>{{ reponse.thread.question }}</td>
+                      <td>{{ reponse.reply }}</td>
+                      <td>{{ reponse.etudiant.idE }}</td>
+                      <td>{{ reponse.nb_likes }}</td>
+                      <td>{{ reponse.display }}</td>
+                      <td>{{ reponse.replydate | date : "short" }}</td>
+                      <td>{{ reponse.updatedAt | date : "short" }}</td>
+                      <td>
+                        <button type="button" class="btn btn-info" (click)="btnClickw(reponse)">View</button>
+                        <button type="button" class="btn btn-info" (click)="btnClickup(reponse)">Update</button>
+                        <button type="button" class="btn btn-danger" (click)="deletereponseRequest(reponse,ind)"> Supprimer</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div>
+                  <div class="alert alert-warning" *ngIf="errorMessage">
+                    <strong> Erreur ! </strong> {{ errorMessage }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

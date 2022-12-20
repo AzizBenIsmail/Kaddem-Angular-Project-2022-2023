@@ -1,0 +1,106 @@
+
+<div class="main-content threadSection">
+  <div class="container-fluid ">
+    <div class="row">
+      <div class="col-md-12">
+         <br>
+        <br>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm text-center   btn  forum " routerLink="../" routerLinkActive="active"> Forum</div>
+          </div>
+        </div>
+
+        
+      <div class="col-md-12">
+        
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm text-center   btn btn-danger  "> THREADS</div>
+            <div class="col-sm text-center  btn btn-secondary " routerLink="../reponse" routerLinkActive="active">REPONSES</div>
+          </div>
+        </div>
+
+
+
+        <app-create-thread
+          [thread]="selectedThread"
+          (save)="saveThreadWatcher($event)"
+        ></app-create-thread>
+        <div class="card">
+          <div class="text-end">
+            <button class="btn btn-primary" (click)="createThreadRequest()">
+              Create thread
+            </button>
+          </div>
+          <br />
+          <div class="alert alert-danger" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </div>
+          <br />
+
+          <div class="card-header card-header-danger">
+            <h4 class="card-title">Table des threads</h4>
+            <p class="card-category">Liste des threads</p>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <tr>
+                    <th>#</th>
+                    <th>object</th>
+                    <th>question</th>
+                    <th>display</th>
+                <th>etudiant</th>
+                    <th>nb_likes</th>
+                    <th>verified</th>
+                    <th>postDate</th>
+                    <th>updatedAt</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let thread of threads; index as ind">
+                    <td>{{ thread.id }}</td>
+                    <td>{{ thread.object }}</td>
+                    <td>{{ thread.question }}</td>
+                    <td>{{ thread.display }}</td>
+               <td>{{ thread.etudiant.idE }}</td>
+                    <td>{{ thread.nb_likes }}</td>
+                    <td>{{ thread.verified }}</td>
+                    <td>{{ thread.postDate | date : "short" }}</td>
+                    <td>{{ thread.updatedAt | date : "short" }}</td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn btn-info"
+                        (click)="editThreadRequest(thread)"
+                      >
+                        Update
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="deleteThreadRequest(thread, ind)"
+                      >
+                        Supprimer
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <div class="alert alert-warning" *ngIf="errorMessage">
+                  <strong> Erreur ! </strong> {{ errorMessage }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

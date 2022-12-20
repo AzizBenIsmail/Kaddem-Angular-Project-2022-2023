@@ -1,0 +1,160 @@
+
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journal-x" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6.146 6.146a.5.5 0 0 1 .708 0L8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 0 1 0-.708z"/>
+                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                        </svg>                    </div>
+                    <p class="card-category">TOTAL DES CONTRATS NON ARCHIVES</p>
+                    <h3 class="card-title text-danger">{{CNA.length}}
+                        <small><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journal-x" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6.146 6.146a.5.5 0 0 1 .708 0L8 7.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 8l1.147 1.146a.5.5 0 0 1-.708.708L8 8.707 6.854 9.854a.5.5 0 0 1-.708-.708L7.293 8 6.146 6.854a.5.5 0 0 1 0-.708z"/>
+                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                        </svg> </small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <a href="javascript:void(0)"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                        </svg>                    </div>
+                    <p class="card-category">TOTAL DES CONTRATS ARCHIVES</p><br>
+                    <h3 class="card-title text-danger">{{CA.length}}
+                        <small><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journal-check" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10.854 6.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 8.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                        </svg>   </small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <a href="javascript:void(0)"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                            <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+                            <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
+                        </svg>                    </div>
+                    <p class="card-category">TOTAL DES CONTRATS</p><br>
+                    <h3 class="card-title text-danger">{{contrats.length}}
+                        <small> <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journals" viewBox="0 0 16 16">
+                            <path d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z"/>
+                            <path d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z"/>
+                        </svg>  </small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <a href="javascript:void(0)"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <mat-form-field>
+                <input   matInput placeholder="Filter" [(ngModel)]="filterText">
+            </mat-form-field>
+
+            <div class="card ">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title text-uppercase   fs-1">Contracts List</h4>
+            <button  [ngClass]="['btn', 'btn-outline-warning']"  (click)="onCreate()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
+                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+            </svg>
+            ADD A NEW CONTRACT
+            </button>
+            <p class="card-category ">5 Contracts per page, {{cValue}}</p>
+        </div>
+        <div class="card-body table-responsive">
+            <table class="table table-hover">
+                <thead class="text-warning">
+                <th>Date Debut Contrat</th>
+                <th>Date Fin Contrat</th>
+                <th>Montant Contrat</th>
+                <th>Specialite</th>
+                <th>Archive</th>
+                <th>Actions</th>
+                </thead>
+                <tbody >
+
+                <tr *ngFor="let c of contrats | filter:filterText">
+                    <td>{{c.dateDebutC}}</td>
+                    <td>{{c.dateFinC}}</td>
+                    <td>{{c.montantC}}</td>
+                    <td>{{c.specailite}}</td>
+                    <td [ngStyle]="{'color':(c.archive== true ) ? 'orange' : 'green' }" >{{c.archive}}</td>
+                    <td class="td-actions text-left">
+                        <button mat-raised-button type="button" (click)="showUpdateForm(c)" matTooltip="Edit Contrat" [matTooltipPosition]="'above'" class="btn btn-warning btn-link btn-sm btn-just-icon">
+                            <i class="material-icons">edit</i>
+                        </button>
+                        <button mat-raised-button type="button" matTooltip="Remove Contrat" [matTooltipPosition]="'above'" class="btn btn-warning btn-link btn-sm btn-just-icon"
+                        (click)="confirmDialog(c.idContrat)">
+                            <i class="material-icons">close</i>
+                        </button>
+                        <button mat-raised-button type="button" (click)="generatePdf(c)" matTooltip="Extract Contrat" [matTooltipPosition]="'above'" class="btn btn-warning btn-link btn-sm btn-just-icon">
+                            <span class="material-icons">
+                                picture_as_pdf
+                            </span>
+                        </button>
+                        <button mat-raised-button type="button" (click)="PrintPdf(c)" matTooltip="Print Contrat" [matTooltipPosition]="'above'" class="btn btn-warning btn-link btn-sm btn-just-icon">
+                            <i class="fa fa-print" aria-hidden="true"></i>                        </button>
+                        <button mat-raised-button type="button" (click)="ExpandPdf(c)" matTooltip="Expand Contrat" [matTooltipPosition]="'above'" class="btn btn-warning btn-link btn-sm btn-just-icon">
+                            <i class="fa fa-arrows-alt" aria-hidden="true"></i>                       </button>
+                    </td>
+                </tr>
+
+                </tbody>
+
+            </table>
+
+
+            <mat-paginator [length]="totalElements"
+                           [pageSize]="5"
+                           [pageSizeOptions]="[5, 10, 25, 100]"
+                           (page)="nextPage($event)"
+                           aria-label="Select page">
+            </mat-paginator>
+
+
+
+
+        </div>
+    </div>
+</div>
+        </div></div>
+<div *ngIf="clickedAdd">
+<app-add (list)="addContrat($event)"></app-add>
+</div>
+<div *ngIf="showUpdate">
+    <app-update [ctrct]="contractBinding" (list)="addContrat($event)"></app-update>
+</div>
